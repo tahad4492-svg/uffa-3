@@ -1,0 +1,64 @@
+# MrTahaDarvish's UnstableFFA - config
+# Messages use MiniMessage format: https://docs.advntr.dev/minimessage/format.html
+
+config-version: 3
+
+prefix: "<red><bold>UnstableFFA</bold> <dark_gray>» <gray>"
+
+coins:
+  per-kill: 2        # coins a player earns for each kill
+  starting: 0        # coins a brand new player starts with
+
+lobby:
+  teleport-on-join: true     # send players to the lobby when they join
+  give-kit-selector: true    # give the nether star that opens the kit menu
+
+arena:
+  # every this many minutes the map resets; a portal with several arenas then moves to the next arena
+  reset-interval-minutes: 15
+  # seconds-before-reset at which players in the arena are warned
+  reset-warnings: [60, 30, 10, 5, 4, 3, 2, 1]
+  # how many blocks are put back per tick while a map resets (lower = less lag)
+  blocks-restored-per-tick: 4000
+  # move everyone in the arena to the lobby right before the map resets
+  send-players-to-lobby-on-reset: true
+  # seconds of damage immunity after entering an arena (ends early if you attack)
+  spawn-protection-seconds: 3
+  # skip the death screen and respawn straight in the lobby
+  auto-respawn: true
+  # stop players opening chests/furnaces/etc. in arenas (their contents can't be restored)
+  # shulker boxes are always allowed (open, fill, empty, place, break)
+  block-containers: true
+  # entity types removed from the arena world on every reset
+  # (remove END_CRYSTAL from this list if your map has decorative crystals)
+  remove-entities-on-reset:
+    - ITEM
+    - EXPERIENCE_ORB
+    - TNT
+    - FALLING_BLOCK
+    - ARROW
+    - SPECTRAL_ARROW
+    - TRIDENT
+    - ENDER_PEARL
+    - AREA_EFFECT_CLOUD
+    - END_CRYSTAL
+    - WIND_CHARGE
+    - BREEZE_WIND_CHARGE
+    - FIREBALL
+    - SMALL_FIREBALL
+    - SNOWBALL
+    - EGG
+    - SPLASH_POTION
+    - LINGERING_POTION
+
+shop:
+  title: "<dark_gray>Shop"     # title of the main /shop menu (MiniMessage)
+
+scoreboard:
+  enabled: true
+  title: "<red><bold>UnstableFFA"
+  # what "Active Players" counts: "arena" = players fighting in arenas, "online" = everyone online
+  active-players: arena
+
+hologram:
+  enabled: true     # floating text above portals (arena name, active players, countdown) and the optional leaderboard

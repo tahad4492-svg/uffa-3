@@ -1,0 +1,51 @@
+name: UnstableFFA
+version: '${project.version}'
+main: com.mrtahadarvish.unstableffa.UnstableFFA
+api-version: '1.21'
+authors: [MrTahaDarvish]
+description: "MrTahaDarvish's UnstableFFA - unstable SMP style FFA with coins, kit shop, lobby, end-portal arenas and auto-resetting maps."
+
+commands:
+  ufa:
+    description: UnstableFFA admin command (worlds, arenas, portals, lobby)
+    aliases: [unstableffa]
+    usage: /ufa help
+    permission: ufa.admin
+  kit:
+    description: Open the kit menu (admins can manage kits with subcommands)
+    aliases: [kits]
+    usage: /kit
+    permission: ufa.use
+  coins:
+    description: Show your coins (admins can give/take/set)
+    aliases: [balance, bal]
+    usage: /coins [player]
+    permission: ufa.use
+  shop:
+    description: Open the shop (admins can manage sections and items with subcommands)
+    aliases: [store]
+    usage: /shop
+    permission: ufa.use
+  playerhead:
+    description: Get the head of a player by Minecraft name (real skin)
+    aliases: [phead]
+    usage: /playerhead <name>
+    permission: ufa.admin
+  leaderboard:
+    description: Show the top players (kills, deaths or coins)
+    aliases: [lb]
+    usage: /leaderboard [kills|deaths|coins]
+    permission: ufa.use
+  lobby:
+    description: Go back to the lobby
+    aliases: [hub, spawn]
+    usage: /lobby
+    permission: ufa.use
+
+permissions:
+  ufa.use:
+    description: Use /kit, /coins, /shop and /lobby
+    default: true
+  ufa.admin:
+    description: Manage worlds, arenas, portals, kits and coins. Also bypasses lobby protection while in creative.
+    default: op
